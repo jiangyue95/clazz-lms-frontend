@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import AppLayout from "../layout"
+import AuthGuard from "../components/AuthGuard"
 import Login from '../pages/Login'
 import Home from '../pages/Home'
 import ClassManagement from '../pages/clazz/ClassManagement'
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     { path: '/login', element: <Login /> },
     {
         path: '/',
-        element: <AppLayout />,
+        element: <AuthGuard><AppLayout /></AuthGuard>,
         children: [
             { index: true, element: <Home />},
             { path: 'class', element: <ClassManagement /> },
