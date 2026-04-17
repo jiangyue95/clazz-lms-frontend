@@ -8,7 +8,7 @@ const Login = () => {
     const onFinish = async (values) => {
         const res = await loginApi(values)
         if (res.data.code === 1) {
-            localStorage.setItem('token', res.data.token)
+            localStorage.setItem('token', res.data.data.token)
             navigate('/')
         } else {
             message.error('Invalid username or password')
